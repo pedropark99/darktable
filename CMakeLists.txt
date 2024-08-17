@@ -495,3 +495,20 @@ add_custom_target(uninstall
     COMMAND ${CMAKE_COMMAND} -P ${CMAKE_CURRENT_BINARY_DIR}/cmake_uninstall.cmake)
 
 feature_summary(WHAT ALL)
+
+
+
+
+
+
+
+
+
+add_executable(darktablev2 src/mainv2.c)
+find_package(PkgConfig REQUIRED)
+pkg_check_modules(GTK REQUIRED gkt4)
+target_link_libraries(darktablev2 ${GTK_LIBRARIES})
+target_include_directories(darktablev2 PUBLIC ${GTK_INCLUDE_DIRS})
+target_compile_options(darktablev2 PUBLIC ${GTK_CFLAGS_OTHER})
+
+
